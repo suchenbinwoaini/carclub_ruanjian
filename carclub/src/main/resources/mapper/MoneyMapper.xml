@@ -5,12 +5,14 @@
 <mapper namespace="com.example.carclub.mapper.MoneyMapper">
 
     <resultMap id="BaseResultMap" type="com.example.carclub.entity.Money">
-            <id property="vipnum" column="VIPnum" jdbcType="VARCHAR"/>
+            <id property="moneynum" column="moneynum" jdbcType="INTEGER"/>
+            <result property="vipnum" column="VIPnum" jdbcType="INTEGER"/>
             <result property="mdate" column="Mdate" jdbcType="DATE"/>
             <result property="money" column="Money" jdbcType="INTEGER"/>
     </resultMap>
 
     <sql id="Base_Column_List">
-        VIPnum,Mdate,Money
+        moneynum,VIPnum,Mdate,
+        Money
     </sql>
 </mapper>

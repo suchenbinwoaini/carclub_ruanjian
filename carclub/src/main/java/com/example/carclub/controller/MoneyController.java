@@ -14,6 +14,7 @@ import com.example.carclub.service.MoneyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -38,8 +39,17 @@ public class MoneyController {
     }
 
     @GetMapping("/chart")
-    public List<Money> select(){
-        return moneyService.select();
+    public Result select(){
+        List<Money> list = moneyService.list();
+        List<Money> list1 = new ArrayList<Money>();
+        for (Money money :list){
+            Date createTime = money.getMdate();
+            Month month = DateUtil.monthEnum(createTime);
+            if (month == Month.DECEMBER){
+                list1.add(money);
+            }
+        }
+        return Result.success(CollUtil.newArrayList(list1));
     }
 
     @GetMapping("/charts")

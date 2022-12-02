@@ -21,7 +21,12 @@ public class Money implements Serializable {
      * 
      */
     @TableId
-    private String vipnum;
+    private Integer moneynum;
+
+    /**
+     * 
+     */
+    private Integer vipnum;
 
     /**
      * 
@@ -49,7 +54,8 @@ public class Money implements Serializable {
             return false;
         }
         Money other = (Money) that;
-        return (this.getVipnum() == null ? other.getVipnum() == null : this.getVipnum().equals(other.getVipnum()))
+        return (this.getMoneynum() == null ? other.getMoneynum() == null : this.getMoneynum().equals(other.getMoneynum()))
+            && (this.getVipnum() == null ? other.getVipnum() == null : this.getVipnum().equals(other.getVipnum()))
             && (this.getMdate() == null ? other.getMdate() == null : this.getMdate().equals(other.getMdate()))
             && (this.getMoney() == null ? other.getMoney() == null : this.getMoney().equals(other.getMoney()));
     }
@@ -58,6 +64,7 @@ public class Money implements Serializable {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
+        result = prime * result + ((getMoneynum() == null) ? 0 : getMoneynum().hashCode());
         result = prime * result + ((getVipnum() == null) ? 0 : getVipnum().hashCode());
         result = prime * result + ((getMdate() == null) ? 0 : getMdate().hashCode());
         result = prime * result + ((getMoney() == null) ? 0 : getMoney().hashCode());
@@ -70,6 +77,7 @@ public class Money implements Serializable {
         sb.append(getClass().getSimpleName());
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
+        sb.append(", moneynum=").append(moneynum);
         sb.append(", vipnum=").append(vipnum);
         sb.append(", mdate=").append(mdate);
         sb.append(", money=").append(money);

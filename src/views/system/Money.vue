@@ -24,6 +24,7 @@
 
     <el-table :data="tableData" border stripe :header-cell-class-name="'headerBg'"  @selection-change="handleSelectionChange">
       <el-table-column type="selection" width="55"></el-table-column>
+      <el-table-column prop="moneynum" label="缴费编号"></el-table-column>
       <el-table-column prop="vipnum" label="会员ID"></el-table-column>
       <el-table-column prop="mdate" label="缴费日期"></el-table-column>
       <el-table-column prop="money" label="缴费金额"></el-table-column>
@@ -37,7 +38,7 @@
               icon="el-icon-info"
               icon-color="red"
               title="您确定删除吗？"
-              @confirm="del(scope.row.vipnum)"
+              @confirm="del(scope.row.moneynum)"
           >
             <el-button type="danger" slot="reference">删除 <i class="el-icon-remove-outline"></i></el-button>
           </el-popconfirm>
@@ -57,6 +58,9 @@
     </div>
     <el-dialog title="用户信息" :visible.sync="dialogFormVisible" width="30%" >
       <el-form label-width="90px" size="small">
+        <el-form-item label="缴费编号">
+          <el-input v-model="form.moneynum" autocomplete="off" placeholder="请输入缴费编号"></el-input>
+        </el-form-item>
         <el-form-item label="缴费用户ID">
           <el-input v-model="form.vipnum" autocomplete="off" placeholder="请输入缴费用户ID"></el-input>
         </el-form-item>
@@ -93,6 +97,7 @@ export default {
       total: 0,
       pageNum: 1,
       pageSize: 5,
+      moneynum:"",
       VIPnum:"",
       Mdate:"",
       Money:"",
@@ -152,7 +157,7 @@ export default {
       this.load()
     },
     delBatch(){
-      let ids = this.multipleSelection.map(v => v.vipnum)  // [{}, {}, {}] => [1,2,3]
+      let ids = this.multipleSelection.map(v => v.moneynum)  // [{}, {}, {}] => [1,2,3]
       console.log(ids)
       request.post("/money/del/batch", ids).then(res => {
         if (res) {

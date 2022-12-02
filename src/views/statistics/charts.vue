@@ -1,46 +1,53 @@
 <template>
-  <div id="app">
-    <ve-line :data="chartData" :settings="chartSettings"></ve-line>
-  </div>
+  <div id="main" style="width: 500px; height: 400px"></div>
 </template>
 
 <script>
 import request from "@/utils/request";
-
+import * as echarts from 'echarts'
 
 export default {
-  name: "charts",
-  data: function () {
-    this.chartSettings = {
-      xAxisType: 'category'
-    };
-    return {
-      chartData: {
-        columns: ['日期', '销售额'],
-        rows: []
-      },
-      activeName: 'first', //当前tab的name值
-      DataShow: [],
+  name: "charts",data(){
+    return{
     }
   },
   mounted() {
-    this.showMoney();
-  },
-  methods:{
-    showMoney(){
-      request.get("/money/chart",{
-      }).then(res => {
-        console.log(res)
-        this.DataShow = res;
-        console.log(this.DataShow)
-        for (var i = 0; i < this.DataShow.length; i++) {
-          this.chartData.rows.push({
-            "日期": this.DataShow[i].mdate,
-            "销售额": this.DataShow[i].money,
-          });
+    var option = {
+      xAxis: {
+        type: 'category',
+        data: ["2012-12-3"]
+      },
+      yAxis: {
+        type: 'value'
+      },
+      series: [
+        {
+          data: [],
+          type: 'line'
+        },
+        {
+          data: [],
+          type: 'bar'
         }
-      })
-    }
+      ]
+    };
+    var chartDom = document.getElementById('main');
+    var myChart = echarts.init(chartDom);
+
+    request.get("/money/chart",{
+    }).then(res => {
+      var Xdata = [];
+      var Sdata = [];
+      for (var i = 0; i < res.data.length; i++) {
+        var item = res.data[i];
+        console.log(item)
+        Xdata.push(item.mdate);
+        Sdata.push(item.money);
+      }
+      option.series[0].data = Sdata;
+      option.xAxis.data = Xdata;
+      myChart.setOption(option)
+    })
   }
 }
 </script>
