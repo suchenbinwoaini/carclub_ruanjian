@@ -112,6 +112,39 @@ export default {
   },
   methods:{
     load(){
+      // let that = this
+      // axios.get(' http://localhost:8088/money/page',{
+      //   params:{
+      //     pageNum: this.pageNum,
+      //     pageSize: this.pageSize,
+      //     VIPnum:this.VIPnum,
+      //     Mdate:this.Mdate,
+      //   }
+      // }).then(function (res) {
+      //         console.log(res)
+      //         console.log(this)
+      //         console.log(that)
+      //         that.tableData = res.data.records
+      //         that.total = res.data.total
+      //       })
+      // $.ajax({
+      //   url : ' http://localhost:8088/money/page',
+      //   data:{
+      //           pageNum: this.pageNum,
+      //           pageSize: this.pageSize,
+      //           VIPnum:this.VIPnum,
+      //           Mdate:this.Mdate,
+      //   },
+      //   type:'GET',
+      // }).done(function (res) {
+      //   console.log(res)
+      //   console.log(that)
+      //   that.tableData = res.records
+      //   that.total = res.total
+      // }).fail(function () {
+      //   console.log("请求失败")
+      // })
+    // },
       request.get("/money/page",{
         params: {
           pageNum: this.pageNum,
@@ -120,11 +153,11 @@ export default {
           Mdate:this.Mdate,
         }
       }).then(res => {
-        console.log(res)
-        this.tableData = res.records
-        this.total = res.total
-      })
-    },
+  console.log(res)
+  this.tableData = res.records
+  this.total = res.total
+})
+},
     reset(){
       this.VIPnum = ""
       this.Mdate= ""

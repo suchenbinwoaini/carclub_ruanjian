@@ -215,7 +215,8 @@ export default {
         this.$message.error("密码不能为空")
         return
       }
-      request.post("/user",this.form).then(res => {
+      console.log(this.form)
+      request.post("/user/update",this.form).then(res => {
         if (res) {
           console.log(res)
           this.$message.success("保存成功")
@@ -227,7 +228,7 @@ export default {
       })
     },
     del(id){
-      request.delete("/user/"+id).then(res=>{
+      request.delete("/user/user/"+id).then(res=>{
         if (res) {
           this.$message.success("删除成功")
           this.load()

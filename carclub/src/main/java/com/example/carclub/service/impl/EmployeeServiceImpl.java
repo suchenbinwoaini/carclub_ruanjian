@@ -7,6 +7,7 @@ import com.example.carclub.entity.Employee;
 import com.example.carclub.entity.dto.Employeedto;
 import com.example.carclub.service.EmployeeService;
 import com.example.carclub.mapper.EmployeeMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -17,6 +18,20 @@ import org.springframework.stereotype.Service;
 @Service
 public class EmployeeServiceImpl extends ServiceImpl<EmployeeMapper, Employee>
     implements EmployeeService{
+
+    @Autowired
+    private EmployeeMapper employeeMapper;
+
+
+    @Override
+    public int update(Employee employee) {
+        return employeeMapper.update1(employee);
+    }
+
+    @Override
+    public int deleteById(Integer Enum) {
+        return employeeMapper.deleteById1(Enum);
+    }
 
     @Override
     public Employeedto login(Employeedto employeedto) {
@@ -34,6 +49,8 @@ public class EmployeeServiceImpl extends ServiceImpl<EmployeeMapper, Employee>
         else
             return null;
     }
+
+
 }
 
 

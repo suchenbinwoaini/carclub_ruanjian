@@ -6,7 +6,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 /**
 * @author LENOVO
 * @description 针对表【carinfo】的数据库操作Service
-* @createDate 2022-11-28 18:42:58
+* @createDate 2022-12-27 21:26:38
 */
 public interface CarinfoService extends IService<Carinfo> {
 

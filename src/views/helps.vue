@@ -55,19 +55,19 @@
         联系人：
       </div>
       <div style="color: rgb(46,117,181)">
-        汪子茵
+        宿辰彬
       </div>
       <div>
         联系方式：
       </div>
       <div style="color: rgb(46,117,181)">
-        15822187055
+        13373215579
       </div>
       <div>
         邮箱地址：
       </div>
       <div style="color: rgb(46,117,181)">
-        1365637735@qq.com
+        1131226516@qq.com
       </div>
     </el-aside>
 

@@ -49,6 +49,11 @@ const routes = [
         component:() => import('../views/help/map')
       },
       {
+        path: '/download',
+        name:'下载',
+        component:() => import('../views/download')
+      },
+      {
         path: '/rescuerecords1',
         name: '救援记录',
         component:() => import('../views/help/RescueRecords')

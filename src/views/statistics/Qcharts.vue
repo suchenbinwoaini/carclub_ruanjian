@@ -32,6 +32,7 @@ export default {
       },
       series: [
         {
+          itemStyle : { normal: {label : {show: true}}},   //重点是这句加上了后可以显示数字。不然不显示
           data: [],
           type: 'line'
         },

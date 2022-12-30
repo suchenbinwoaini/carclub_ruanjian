@@ -10,9 +10,11 @@ import VeLine from 'v-charts/lib/line.common'
 import VueAMap from 'vue-amap';
 // 引入 echarts 插件
 import echarts from 'echarts'
+import jquery from 'jquery';
 
 // 配置成全局组件
 Vue.prototype.$echarts = echarts
+
 Vue.use(VueAMap);
 VueAMap.initAMapApiLoader({
   key: 'your amap key',
@@ -20,7 +22,7 @@ VueAMap.initAMapApiLoader({
   v: '1.4.4'
 });
 
-
+Vue.prototype.jquery = $
 Vue.config.productionTip = false
 Vue.prototype.request = request()
 Vue.use(VCharts)

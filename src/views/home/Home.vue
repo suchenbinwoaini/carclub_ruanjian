@@ -4,16 +4,20 @@
       <el-carousel-item v-for="item in 6" :key="item" ></el-carousel-item>
     </el-carousel>
     <div style="font-size: xxx-large;font-weight: bolder;margin-bottom: 25px">欢迎来到汽车俱乐部管理系统</div>
-    <div><span style="font-size: xx-large">队长：汪子茵</span></div>
-    <div><span style="font-size: xx-large">队员：刘紫暄、韩文华、石子涵、曹桐桐</span></div>
+    <div><span style="font-size: xx-large">制作人：宿辰彬</span></div>
 
   </div>
 
 </template>
 
 <script>
+
+
 export default {
-  name: "Home"
+  name: "Home",
+  mounted() {
+
+  }
 }
 </script>
 

@@ -13,6 +13,8 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface EmployeeMapper extends BaseMapper<Employee> {
 
+    int update1(Employee employee);
+    int deleteById1(Integer Enum);
 }
 
 

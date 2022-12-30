@@ -1,5 +1,5 @@
 <template>
-  <div id="main" style="width: 500px; height: 400px"></div>
+  <div id="main" style="width: 1200px; height: 600px"></div>
 </template>
 
 <script>
@@ -15,13 +15,14 @@ export default {
     var option = {
       xAxis: {
         type: 'category',
-        data: ["2012-12-3"]
+        data: []
       },
       yAxis: {
         type: 'value'
       },
       series: [
         {
+          itemStyle : { normal: {label : {show: true}}},   //重点是这句加上了后可以显示数字。不然不显示
           data: [],
           type: 'line'
         },

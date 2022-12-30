@@ -21,4 +21,38 @@
         Eage,Telephone,Depnum,
         Epower,USER,PASSWORD
     </sql>
+    <update id="update1">
+        update employee
+        <set>
+            <if test="ename != null">
+                Ename = #{ename},
+            </if>
+            <if test="esex != null">
+                Esex = #{esex},
+            </if>
+            <if test="eage != null">
+                Eage = #{eage},
+            </if>
+            <if test="telephone != null">
+                Telephone = #{telephone},
+            </if>
+            <if test="depnum != null">
+                Depnum = #{depnum},
+            </if>
+            <if test="epower != null">
+                Epower = #{epower},
+            </if>
+            <if test="user != null">
+                USER = #{user},
+            </if>
+            <if test="password != null">
+                PASSWORD = #{password}
+            </if>
+        </set>
+            where Enum = #{enum}
+    </update>
+    <delete id="deleteById1">
+        delete from employee where Enum = #{Enum}
+    </delete>
+
 </mapper>

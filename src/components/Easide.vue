@@ -17,7 +17,7 @@
     </el-menu-item>
     <el-submenu index="2">
       <template slot="title">
-        <i class="el-icon-menu"></i>
+        <i class="el-icon-user-solid"></i>
         <span>工作管理</span>
       </template>
       <el-menu-item-group>
@@ -25,11 +25,12 @@
         <el-menu-item index="/Traffic1">服务信息</el-menu-item>
         <el-menu-item index="/vip1">会员管理</el-menu-item>
         <el-menu-item index="/helps1">系统帮助</el-menu-item>
+        <el-menu-item index="/download">上传下载</el-menu-item>
       </el-menu-item-group>
     </el-submenu>
     <el-submenu index="3">
       <template slot="title">
-        <i class="el-icon-menu"></i>
+        <i class="el-icon-s-opportunity"></i>
         <span>提醒服务</span>
       </template>
       <el-menu-item-group>
@@ -39,7 +40,7 @@
     </el-submenu>
     <el-submenu index="5">
       <template slot="title">
-        <i class="el-icon-menu"></i>
+        <i class="el-icon-message-solid"></i>
         <span>救援管理</span>
       </template>
       <el-menu-item-group>
@@ -50,7 +51,7 @@
     </el-submenu>
     <el-submenu index="6">
       <template slot="title">
-        <i class="el-icon-menu"></i>
+        <i class="el-icon-s-flag"></i>
         <span>旅行管理</span>
       </template>
       <el-menu-item-group>

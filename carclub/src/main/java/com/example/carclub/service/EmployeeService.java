@@ -10,6 +10,7 @@ import com.example.carclub.entity.dto.Employeedto;
 * @createDate 2022-11-21 23:26:58
 */
 public interface EmployeeService extends IService<Employee> {
-
+    int update(Employee employee);
+    int deleteById(Integer Enum);
     Employeedto login(Employeedto employeedto);
 }

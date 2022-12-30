@@ -14,11 +14,13 @@
             <result property="vipnum" column="VIPnum" jdbcType="VARCHAR"/>
             <result property="policystatus" column="policystatus" jdbcType="CHAR"/>
             <result property="cartype" column="cartype" jdbcType="VARCHAR"/>
+            <result property="urlup" column="urlup" jdbcType="VARCHAR"/>
     </resultMap>
 
     <sql id="Base_Column_List">
         CarNum,polivynum,Settlestatus,
         Checkstatus,CheckTime,SettleTime,
-        VIPnum,policystatus,cartype
+        VIPnum,policystatus,cartype,
+        urlup
     </sql>
 </mapper>

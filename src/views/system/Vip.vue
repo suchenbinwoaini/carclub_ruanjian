@@ -5,7 +5,11 @@
       <el-input style="width: 200px" placeholder="请输入vip名称" suffix-icon="el-icon-message" class="ml-5" v-model="vname"></el-input>
       <el-input style="width: 200px" placeholder="请输入vip身份证号" suffix-icon="el-icon-position" class="ml-5" v-model="vipid"></el-input>
       <el-button style="margin-left: 5px" type="primary" @click="load">搜索</el-button>
-      <el-button type="warning" @click="reset">重置</el-button>
+      <el-button type="warning" @click="reset" class="ml-5">重置</el-button>
+      <el-button type="primary" @click="exp" class="ml-5">导出</el-button>
+      <el-upload name="file" action="http://localhost:8088/vip/import" :show-file-list="false" accept="xlsx" :on-success="handleExcelImportSuccess" style="display: inline-block">
+        <el-button type="primary" class="ml-5">导入</el-button>
+      </el-upload>
     </div>
 
     <div style="margin: 10px 0">
@@ -32,7 +36,7 @@
       <el-table-column prop="vrank" label="会员等级"></el-table-column>
       <el-table-column prop="vmoney" label="会员余额"></el-table-column>
       <el-table-column prop="vipid" label="会员身份证号"></el-table-column>
-      <el-table-column label="操作"  width="200" align="center">
+      <el-table-column label="操作"  width="250" align="center">
         <template slot-scope="scope">
           <el-button type="success" @click="handleEdit(scope.row)">编辑 <i class="el-icon-edit"></i></el-button>
           <el-popconfirm
@@ -153,6 +157,13 @@ export default {
       this.pageNum = pageNum
       this.load()
     },
+    exp(){
+      window.open("http://localhost:8088/vip/export")
+    },
+    handleExcelImportSuccess() {
+      this.$message.success("导入成功")
+      this.load()
+    },
     reset(){
       this.vipnum = ""
       this.vname = ""
@@ -202,5 +213,7 @@ export default {
 </script>
 
 <style scoped>
-
+.ml-5{
+  margin-left: 5px;
+}
 </style>

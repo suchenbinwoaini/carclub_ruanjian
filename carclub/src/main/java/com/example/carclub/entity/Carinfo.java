@@ -65,6 +65,11 @@ public class Carinfo implements Serializable {
      */
     private String cartype;
 
+    /**
+     * 
+     */
+    private String urlup;
+
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
 
@@ -88,7 +93,8 @@ public class Carinfo implements Serializable {
             && (this.getSettletime() == null ? other.getSettletime() == null : this.getSettletime().equals(other.getSettletime()))
             && (this.getVipnum() == null ? other.getVipnum() == null : this.getVipnum().equals(other.getVipnum()))
             && (this.getPolicystatus() == null ? other.getPolicystatus() == null : this.getPolicystatus().equals(other.getPolicystatus()))
-            && (this.getCartype() == null ? other.getCartype() == null : this.getCartype().equals(other.getCartype()));
+            && (this.getCartype() == null ? other.getCartype() == null : this.getCartype().equals(other.getCartype()))
+            && (this.getUrlup() == null ? other.getUrlup() == null : this.getUrlup().equals(other.getUrlup()));
     }
 
     @Override
@@ -104,6 +110,7 @@ public class Carinfo implements Serializable {
         result = prime * result + ((getVipnum() == null) ? 0 : getVipnum().hashCode());
         result = prime * result + ((getPolicystatus() == null) ? 0 : getPolicystatus().hashCode());
         result = prime * result + ((getCartype() == null) ? 0 : getCartype().hashCode());
+        result = prime * result + ((getUrlup() == null) ? 0 : getUrlup().hashCode());
         return result;
     }
 
@@ -122,6 +129,7 @@ public class Carinfo implements Serializable {
         sb.append(", vipnum=").append(vipnum);
         sb.append(", policystatus=").append(policystatus);
         sb.append(", cartype=").append(cartype);
+        sb.append(", urlup=").append(urlup);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

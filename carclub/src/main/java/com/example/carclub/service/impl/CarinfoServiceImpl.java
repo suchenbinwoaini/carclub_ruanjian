@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 /**
 * @author LENOVO
 * @description 针对表【carinfo】的数据库操作Service实现
-* @createDate 2022-11-28 18:42:58
+* @createDate 2022-12-27 21:26:38
 */
 @Service
 public class CarinfoServiceImpl extends ServiceImpl<CarinfoMapper, Carinfo>

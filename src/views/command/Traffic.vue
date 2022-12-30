@@ -30,7 +30,7 @@
       <el-table-column prop="vipnum" label="会员编号"></el-table-column>
       <el-table-column label="操作"  width="200" align="center">
         <template slot-scope="scope">
-<!--          <el-button type="success" @click="handleEdit(scope.row)">编辑 <i class="el-icon-edit"></i></el-button>-->
+          <el-button type="success" @click="handleEdit(scope.row)">编辑 <i class="el-icon-edit"></i></el-button>
           <el-popconfirm
               class="ml-5"
               confirm-button-text='确定'
