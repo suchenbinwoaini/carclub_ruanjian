@@ -1,5 +1,6 @@
 package com.example.carclub.mapper;
 
+import com.example.carclub.common.Result;
 import com.example.carclub.entity.Carinfo;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
@@ -11,6 +12,11 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 */
 public interface CarinfoMapper extends BaseMapper<Carinfo> {
 
+    Result update1(Carinfo carinfo);
+
+    Result delete1(int id);
+
+    Result save1(Carinfo carinfo);
 }
 
 

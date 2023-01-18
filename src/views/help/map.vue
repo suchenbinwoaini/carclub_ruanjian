@@ -5,10 +5,6 @@
 <script>
 export default {
   name: "map",
-
-
-
-
   mounted() {
     var map = new AMap.Map("container", {
       zoom: 13,
@@ -19,13 +15,18 @@ export default {
       offset: new AMap.Pixel(-10, -10),
       title: '河北工业大学'
     })
-    var clickHandler = function(e) {
-      alert('['+e.lnglat.getLng()+','+e.lnglat.getLat()+' ]可能需要救援！');
-    };
+    // var clickHandler = function(e) {
+    //   alert('['+e.lnglat.getLng()+','+e.lnglat.getLat()+' ]可能需要救援！');
+    // };
 
 // 绑定事件
-    map.on('click', clickHandler);
+    map.on('click', this.alert1);
     map.add(marker);
+  },
+  methods:{
+    alert1(e){
+      this.$message.success("经度为"+e.lnglat.getLng()+"，纬度为"+e.lnglat.getLat()+"，需要救援，hahhaah")
+    }
   }
 }
 </script>

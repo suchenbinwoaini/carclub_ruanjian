@@ -49,7 +49,7 @@ const routes = [
         component:() => import('../views/help/map')
       },
       {
-        path: '/download',
+        path: '/download1',
         name:'下载',
         component:() => import('../views/download')
       },
@@ -152,6 +152,11 @@ const routes = [
         path: '/Mcharts',
         name:'统计报表',
         component:() => import('../views/statistics/Mcharts')
+      },
+      {
+        path: '/download',
+        name:'下载',
+        component:() => import('../views/download')
       },
       {
         path: '/traffic',

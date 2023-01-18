@@ -43,6 +43,12 @@ public class UserController {
         return Result.success(employeeService.update(employee));
     }
 
+    @GetMapping("/findall")
+    public List<Employee> findall(){
+        List<Employee> all = employeeService.findAll();
+        return all;
+    }
+
     @GetMapping("/page")
     public IPage<Employee> findpage(@RequestParam Integer pageNum,
                                     @RequestParam Integer pageSize,
@@ -60,5 +66,9 @@ public class UserController {
         if (!"".equals(Depnum))
             queryWrapper.like("Depnum",Depnum);
         return employeeService.page(page,queryWrapper);
+    }
+    @PostMapping("/save")
+    public Result save1(@RequestBody Employee employee){
+        return employeeService.save1(employee);
     }
 }

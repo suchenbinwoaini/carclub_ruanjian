@@ -21,6 +21,38 @@
         Eage,Telephone,Depnum,
         Epower,USER,PASSWORD
     </sql>
+    <insert id="save1">
+        INSERT INTO carclub1.employee(Enum, Ename, Esex, Eage, Telephone, Depnum, Epower, USER, PASSWORD)
+        <where>
+            <if test="enum != null">
+                Enum = #{enum},
+            </if>
+            <if test="ename != null">
+                Ename = #{ename},
+            </if>
+            <if test="esex != null">
+                Esex = #{esex},
+            </if>
+            <if test="eage != null">
+                Eage = #{eage},
+            </if>
+            <if test="telephone != null">
+                Telephone = #{telephone},
+            </if>
+            <if test="depnum != null">
+                Depnum = #{depnum},
+            </if>
+            <if test="epower != null">
+                Epower = #{epower},
+            </if>
+            <if test="user != null">
+                USER = #{user},
+            </if>
+            <if test="password != null">
+                PASSWORD = #{password}
+            </if>
+        </where>
+    </insert>
     <update id="update1">
         update employee
         <set>
@@ -52,7 +84,39 @@
             where Enum = #{enum}
     </update>
     <delete id="deleteById1">
-        delete from employee where Enum = #{Enum}
+        delete from employee <where>
+            <if test="enum" >Enum = #{Enum}</if>
+            </where>
+
     </delete>
+    <select id="findall" resultType="com.example.carclub.entity.Employee">
+        SELECT * FROM employee
+            <trim prefix="WHERE" prefixOverrides="AND |OR ">
+                <if test="ename != null">
+                    Ename = #{ename},
+                </if>
+                <if test="esex != null">
+                    Esex = #{esex},
+                </if>
+                <if test="eage != null">
+                    Eage = #{eage},
+                </if>
+                <if test="telephone != null">
+                    Telephone = #{telephone},
+                </if>
+                <if test="depnum != null">
+                    Depnum = #{depnum},
+                </if>
+                <if test="epower != null">
+                    Epower = #{epower},
+                </if>
+                <if test="user != null">
+                    USER = #{user},
+                </if>
+                <if test="password != null">
+                    PASSWORD = #{password}
+                </if>
+            </trim>
+    </select>
 
 </mapper>

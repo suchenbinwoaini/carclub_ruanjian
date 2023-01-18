@@ -5,7 +5,7 @@
       <el-button class="ml-5" type="primary" @click="load">搜索</el-button>
       <el-button type="warning" @click="reset">重置</el-button>
     </div>
-    <div style="margin: 10px 0">
+    <div style="margin: 10px 0;float: left">
       <el-upload action="http://localhost:8088/file/upload" :show-file-list="false" :on-success="handleFileUploadSuccess" style="display: inline-block">
         <el-button type="primary" class="ml-5">上传文件 <i class="el-icon-top"></i></el-button>
       </el-upload>
@@ -33,11 +33,11 @@
           <el-button type="primary" @click="download(scope.row.url)">下载</el-button>
         </template>
       </el-table-column>
-      <el-table-column label="启用">
-        <template slot-scope="scope">
-          <el-switch v-model="scope.row.enable" active-color="#13ce66" inactive-color="#ccc" @change="changeEnable(scope.row)"></el-switch>
-        </template>
-      </el-table-column>
+<!--      <el-table-column label="启用">-->
+<!--        <template slot-scope="scope">-->
+<!--          <el-switch v-model="scope.row.enable" active-color="#13ce66" inactive-color="#ccc" @change="changeEnable(scope.row)"></el-switch>-->
+<!--        </template>-->
+<!--      </el-table-column>-->
       <el-table-column label="操作"  width="200" align="center">
         <template slot-scope="scope">
           <el-popconfirm
@@ -158,5 +158,7 @@ export default {
 </script>
 
 <style scoped>
-
+.ml-5{
+  margin-left: 5px;
+}
 </style>

@@ -1,5 +1,6 @@
 package com.example.carclub.service;
 
+import com.example.carclub.common.Result;
 import com.example.carclub.entity.Carinfo;
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -10,4 +11,9 @@ import com.baomidou.mybatisplus.extension.service.IService;
 */
 public interface CarinfoService extends IService<Carinfo> {
 
+    Result update1(Carinfo carinfo);
+
+    Result delete1(int id);
+
+    Result save1(Carinfo carinfo);
 }

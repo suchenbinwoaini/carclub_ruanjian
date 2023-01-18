@@ -17,7 +17,7 @@ Vue.prototype.$echarts = echarts
 
 Vue.use(VueAMap);
 VueAMap.initAMapApiLoader({
-  key: 'your amap key',
+  key: '3883b04e8a82c4d58c538a1f7d70034b',
   plugin: ['AMap.Autocomplete', 'AMap.PlaceSearch', 'AMap.Scale', 'AMap.OverView', 'AMap.ToolBar', 'AMap.MapType', 'AMap.PolyEditor', 'AMap.CircleEditor'],
   v: '1.4.4'
 });

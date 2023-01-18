@@ -45,18 +45,15 @@ public class FileController {
         String originalFilename = file.getOriginalFilename();
         String type = FileUtil.extName(originalFilename);
         long size = file.getSize();
-
         // 定义一个文件唯一的标识码
         String uuid = IdUtil.fastSimpleUUID();
         String fileUUID = uuid + StrUtil.DOT + type;
-
         File uploadFile = new File(fileUploadPath + fileUUID);
         // 判断配置的文件目录是否存在，若不存在则创建一个新的文件目录
         File parentFile = uploadFile.getParentFile();
         if(!parentFile.exists()) {
             parentFile.mkdirs();
         }
-
         String url;
         // 获取文件的md5
         String md5 = SecureUtil.md5(file.getInputStream());
@@ -70,7 +67,6 @@ public class FileController {
             // 数据库若不存在重复文件，则不删除刚才上传的文件
             url = "http://localhost:8088/file/" + fileUUID;
         }
-
         // 存储数据库
         Files saveFile = new Files();
         saveFile.setName(originalFilename);
@@ -79,16 +75,9 @@ public class FileController {
         saveFile.setUrl(url);
         saveFile.setMd5(md5);
         fileMapper.insert(saveFile);
-
         return url;
     }
 
-    /**
-     * 文件下载接口   http://localhost:8088/file/{fileUUID}
-     * @param fileUUID
-     * @param response
-     * @throws IOException
-     */
     @GetMapping("/{fileUUID}")
     public void download(@PathVariable String fileUUID, HttpServletResponse response) throws IOException {
         // 根据文件的唯一标识码获取文件
@@ -102,11 +91,7 @@ public class FileController {
         os.flush();
         os.close();
     }
-    /**
-     * 通过文件的md5查询文件
-     * @param md5
-     * @return
-     */
+
     private Files getFileByMd5(String md5) {
         // 查询文件的md5是否存在
         QueryWrapper<Files> queryWrapper = new QueryWrapper<>();

@@ -42,4 +42,18 @@ public class CarinfoController {
         QueryWrapper<Carinfo> queryWrapper = new QueryWrapper<>();
         return carinfoService.page(page,queryWrapper);
     }
+
+    @PostMapping("/update")
+    public Result update(@RequestBody Carinfo carinfo){
+        return carinfoService.update1(carinfo);
+    }
+
+    @DeleteMapping("/del/{id}")
+    public Result delete(@PathVariable int id){
+        return carinfoService.delete1(id);
+    }
+    @PostMapping("/save1")
+    public Result save1(@RequestBody Carinfo carinfo){
+        return carinfoService.save1(carinfo);
+    }
 }

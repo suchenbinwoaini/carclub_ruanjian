@@ -43,7 +43,6 @@ public class VipController {
     public void export(HttpServletResponse response) throws Exception {
         // 从数据库查询出所有的数据
         List<Vip> list = vipService.list();
-
         // 在内存操作，写出到浏览器
         ExcelWriter writer = ExcelUtil.getWriter(true);
         //自定义标题别名
@@ -66,11 +65,6 @@ public class VipController {
         writer.close();
     }
 
-    /**
-     * excel 导入
-     * @param file
-     * @throws Exception
-     */
     @PostMapping("/import")
     public Boolean imp(@RequestParam("file") MultipartFile file) throws Exception {
         if (file ==null){
@@ -79,9 +73,7 @@ public class VipController {
         }
         InputStream inputStream = file.getInputStream();
         ExcelReader reader = ExcelUtil.getReader(inputStream);
-        // 方式1：(推荐) 通过 javabean的方式读取Excel内的对象，但是要求表头必须是英文，跟javabean的属性要对应起来
-//        List<User> list = reader.readAll(User.class);
-        // 方式2：忽略表头的中文，直接读取表的内容
+        // 直接读取表的内容
         List<List<Object>> list = reader.read(1);
         List<Vip> vips = CollUtil.newArrayList();
         for (List<Object> row : list) {

@@ -23,4 +23,82 @@
         VIPnum,policystatus,cartype,
         urlup
     </sql>
+    <insert id="save1">
+        INSERT INTO carinfo(carnum, polivynum, settlestatus, checkstatus, checktime, settletime, vipnum, policystatus, cartype, urlup)
+        <where>
+            <if test="carnum != null">
+                Carnum = #{carnum},
+            </if>
+            <if test="polivynum != null">
+                Polivynum = #{polivynum},
+            </if>
+            <if test="settlestatus != null">
+                Settlestatus = #{settlestatus},
+            </if>
+            <if test="checkstatus != null">
+                Checkstatus = #{checkstatus},
+            </if>
+            <if test="checktime != null">
+                CheckTime = #{checktime},
+            </if>
+            <if test="settletime != null">
+                SettleTime = #{settletime},
+            </if>
+            <if test="vipnum != null">
+                VIPnum = #{vipnum},
+            </if>
+            <if test="policystatus != null">
+                Policystatus = #{policystatus},
+            </if>
+            <if test="cartype != null">
+                cartype = #{cartype},
+            </if>
+            <if test="urlup != null">
+                urlup = #{urlup},
+            </if>
+        </where>
+    </insert>
+    <update id="update1">
+        update carinfo
+        <set>
+            <if test="carnum != null">
+                Carnum = #{carnum},
+            </if>
+            <if test="polivynum != null">
+                Polivynum = #{polivynum},
+            </if>
+            <if test="settlestatus != null">
+                Settlestatus = #{settlestatus},
+            </if>
+            <if test="checkstatus != null">
+                Checkstatus = #{checkstatus},
+            </if>
+            <if test="checktime != null">
+                CheckTime = #{checktime},
+            </if>
+            <if test="settletime != null">
+                SettleTime = #{settletime},
+            </if>
+            <if test="vipnum != null">
+                VIPnum = #{vipnum},
+            </if>
+            <if test="policystatus != null">
+                Policystatus = #{policystatus},
+            </if>
+            <if test="cartype != null">
+                cartype = #{cartype},
+            </if>
+            <if test="urlup != null">
+                urlup = #{urlup},
+            </if>
+        </set>
+    </update>
+    <delete id="delete1">
+            delete from carinfo
+            <where>
+                <if test="carnum != null">
+                    Carnum = #{carnum}
+                </if>
+            </where>
+    </delete>
 </mapper>

@@ -1,8 +1,11 @@
 package com.example.carclub.mapper;
 
+import com.example.carclub.common.Result;
 import com.example.carclub.entity.Employee;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
+
+import java.util.List;
 
 /**
 * @author LENOVO
@@ -15,6 +18,10 @@ public interface EmployeeMapper extends BaseMapper<Employee> {
 
     int update1(Employee employee);
     int deleteById1(Integer Enum);
+
+    List<Employee> findall();
+
+    Result save1(Employee employee);
 }
 
 

@@ -9,7 +9,7 @@
   >
     <div style="height: 60px;line-height: 60px;text-align: center">
       <img src="../assets/logo.png" alt="" style="width: 20px;position: relative;top: 6px;margin-right: 5px">
-      <b style="color: white" v-show="!isCollapse">管理员后台</b>
+      <b style="color: white" v-show="!isCollapse">经理后台</b>
     </div>
     <el-menu-item index="/home">
       <i class="el-icon-s-home"></i>
@@ -18,10 +18,11 @@
     <el-submenu index="1">
       <template slot="title">
         <i class="el-icon-menu"></i>
-        <span>部门管理</span>
+        <span>公司管理</span>
       </template>
       <el-menu-item-group>
         <el-menu-item index="/User">员工管理</el-menu-item>
+        <el-menu-item index="/download">文件管理</el-menu-item>
       </el-menu-item-group>
     </el-submenu>
     <el-submenu index="2">
